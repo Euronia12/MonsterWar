@@ -9,9 +9,11 @@ public class PlayerFSM : MonoBehaviour
     private Vector2 size;
     private LayerMask enemyMask;
     private WaitForSeconds coolTime;
+
     public GameObject target;
     public float AtkSpeed = 1f;
 
+    public PlayerAnimController animController;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,7 @@ public class PlayerFSM : MonoBehaviour
 
     public void Attack(GameObject enemy)
     {
+        animController.PlayAnimation(PlayerState.Attack);
         Debug.Log("АјАн");
     }
     void OnDrawGizmos()
