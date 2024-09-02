@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    PlayerFSM fsm;
+    PlayerAnimController anim;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
