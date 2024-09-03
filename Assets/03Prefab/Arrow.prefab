@@ -172,4 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbody: {fileID: 6843617798483353570}
-  arrowSpeed: 0
+  arrowSpeed: 5
