@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
 public class PlayerFSM : MonoBehaviour
@@ -14,6 +12,7 @@ public class PlayerFSM : MonoBehaviour
     private LayerMask enemyMask;
     private WaitForSeconds coolTime;
 
+    private PoolManager poolManager => PoolManager.Instance;
     public GameObject target;
     public float atkSpeed;
 
@@ -21,7 +20,6 @@ public class PlayerFSM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        atkSpeed = Player.Instance.playerStat.attackSpeed;
         coolTime = new WaitForSeconds(atkSpeed);
         enemyMask = LayerMask.GetMask("Enemy");
         pos = new Vector2(transform.position.x + size.x / 2, transform.position.y);
@@ -56,9 +54,7 @@ public class PlayerFSM : MonoBehaviour
                 }
             }
             else
-            {
                 yield return null;
-            }
         }
     }
 
@@ -66,6 +62,7 @@ public class PlayerFSM : MonoBehaviour
     public void Attack(GameObject enemy)
     {
         animController.PlayAnimation(PlayerState.Attack);
+        poolManager.SpawnFromPool<Arrow>("Arrow");
         Debug.Log("АјАн");
     }
     void OnDrawGizmos()
