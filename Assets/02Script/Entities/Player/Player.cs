@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : Singleton<Player>
 {
-    PlayerFSM fsm;
-    PlayerAnimController anim;
+    public PlayerFSM fsm;
+    public PlayerAnimController anim;
+    public PlayerStat playerStat = new PlayerStat();
 
 }

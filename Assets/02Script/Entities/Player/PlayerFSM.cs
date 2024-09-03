@@ -7,18 +7,24 @@ public class PlayerFSM : MonoBehaviour
 {
     [SerializeField]
     private Vector2 size;
+    [SerializeField]
+    private Vector2 pos;
+
+    [SerializeField]
     private LayerMask enemyMask;
     private WaitForSeconds coolTime;
 
     public GameObject target;
-    public float AtkSpeed = 1f;
+    public float atkSpeed;
 
     public PlayerAnimController animController;
     // Start is called before the first frame update
     void Start()
     {
-        coolTime = new WaitForSeconds(AtkSpeed);
+        atkSpeed = Player.Instance.playerStat.attackSpeed;
+        coolTime = new WaitForSeconds(atkSpeed);
         enemyMask = LayerMask.GetMask("Enemy");
+        pos = new Vector2(transform.position.x + size.x / 2, transform.position.y);
         StartCoroutine(DetectedEnemy());
     }
 
@@ -30,7 +36,7 @@ public class PlayerFSM : MonoBehaviour
             {
                 if (target == null)
                 {
-                   var enemy = Physics2D.OverlapBox(transform.position, size, 0, enemyMask);
+                   var enemy = Physics2D.OverlapBox(pos, size, 0, enemyMask);
                     if (enemy != null)
                     {
                         target = enemy.gameObject;
@@ -65,6 +71,6 @@ public class PlayerFSM : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = UnityEngine.Color.red;
-        Gizmos.DrawWireCube(transform.position, size);
+        Gizmos.DrawWireCube(pos, size);
     }
 }
