@@ -6,6 +6,7 @@ public class Player : Singleton<Player>
 {
     public PlayerFSM fsm;
     public PlayerAnimController anim;
+    public Transform shootPos;
     public PlayerStat playerStat = new PlayerStat();
 
 }

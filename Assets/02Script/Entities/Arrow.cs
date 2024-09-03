@@ -4,34 +4,21 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    bool isInit;
     [SerializeField]
     Rigidbody2D rbody;
     [SerializeField]
     private float arrowSpeed;
     private string enemyTag = "Enemy";
     private Player player => Player.Instance;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        isInit = true;
-    }
 
     private void OnEnable()
     {
-        if (isInit)
-        {
-            rbody.velocity = Vector2.right * arrowSpeed;
-        }
+        rbody.velocity = Vector2.right * arrowSpeed;
     }
 
-    private void OnDisable()
+    private void OnBecameInvisible()
     {
-        if (!isInit)
-        {
-            rbody.velocity = Vector2.zero;
-        }
+        InitArrow();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +26,15 @@ public class Arrow : MonoBehaviour
         if (collision.CompareTag(enemyTag))
         {
             //플레이어 스탯 가져와서 데미지 주기
+            int damage = player.playerStat.atkPower;
+            InitArrow();
         }
+    }
+
+    private void InitArrow()
+    {
+        rbody.velocity = Vector2.zero;
+        transform.position = player.shootPos.position;
+        gameObject.SetActive(false);
     }
 }
