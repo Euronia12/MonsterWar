@@ -11,14 +11,38 @@ public class Arrow : MonoBehaviour
     private string enemyTag = "Enemy";
     private Player player => Player.Instance;
 
+    private bool isReturn;
+    private WaitUntil checking;
+
+    private void Awake()
+    {
+        checking = new WaitUntil(() => CheckedArrow());
+    }
+
     private void OnEnable()
     {
-        rbody.velocity = Vector2.right * arrowSpeed;
+        isReturn = false;
+        transform.position = player.shootPos.position;
+        StartCoroutine(Shooting());
     }
 
     private void OnBecameInvisible()
     {
         InitArrow();
+    }
+
+    IEnumerator Shooting()
+    {
+        yield return checking;
+        InitArrow();
+    }
+
+    private bool CheckedArrow()
+    {
+        if (transform.position.x > 10 || isReturn)
+            return true;
+        rbody.velocity = Vector2.right * arrowSpeed;
+        return false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,14 +51,13 @@ public class Arrow : MonoBehaviour
         {
             //플레이어 스탯 가져와서 데미지 주기
             int damage = player.playerStat.atkPower;
-            InitArrow();
+            isReturn = true;
         }
     }
 
     private void InitArrow()
     {
         rbody.velocity = Vector2.zero;
-        transform.position = player.shootPos.position;
         gameObject.SetActive(false);
     }
 }
