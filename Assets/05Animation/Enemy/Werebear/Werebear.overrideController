@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Werebear
+  m_Controller: {fileID: 9100000, guid: b4bf68d79f8fbad4498b6162b85ccb6e, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 20ee7858ad06f5f4cb84f7f5771a74a7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 18a84f651ee751a46a9c1ff4ef4dac10, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 55cfce6bd7f4dec4a92a2d00b6bb0aae, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: eb848048302526e498552dc905a3e02a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6db1de1e45ffca340aabc1e1c36b7264, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4cbcf04d0a52578418891aca15dcad54, type: 2}
