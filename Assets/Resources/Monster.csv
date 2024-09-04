@@ -1,0 +1,6 @@
+﻿rcode,name,grade,speed,health
+ENY00000,Skeleton,일반,0.5,50
+ENY00001,Elite Orc,레어,1,100
+ENY00002,Wizard,매직,0.8,200
+ENY00003,Werebear,전설,2,500
+ENY00004,Orc rider,영웅,2.5,1000
