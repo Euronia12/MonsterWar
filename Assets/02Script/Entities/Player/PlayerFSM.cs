@@ -62,7 +62,7 @@ public class PlayerFSM : MonoBehaviour
     public void Attack(GameObject enemy)
     {
         animController.PlayAnimation(PlayerState.Attack);
-        poolManager.SpawnFromPool<Arrow>("Arrow");
+        poolManager.SpawnFromPool<Arrow>("Arrow").Init();
         Debug.Log("АјАн");
     }
     void OnDrawGizmos()
