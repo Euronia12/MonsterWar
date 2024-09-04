@@ -7,9 +7,15 @@ public class EnemyStatHandler : MonoBehaviour
     [SerializeField]
     private Enemy enemy;
     public bool isDead;
+
+    private void Start()
+    {
+        enemy.stat.maxHealth = enemy.stat.health;
+    }
+
     public void Init()
     {
-
+        enemy.stat.health = enemy.stat.maxHealth;
     }
 
     public void OnDamaged(int damage)
