@@ -57,6 +57,7 @@ public class PoolManager : Singleton<PoolManager>
         for (int i = 0; i < pool.size; i++)
         {
             MonoBehaviour obj = Instantiate(pool.prefab, rcodeParent);
+            obj.GetComponent<PoolObject>().SetData(pool.rcode);
             obj.gameObject.SetActive(false);
             objectPool.Enqueue(obj);
         }

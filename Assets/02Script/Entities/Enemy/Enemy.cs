@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, PoolObject
 {
     private Player player => Player.Instance;
     [SerializeField]
@@ -17,21 +17,22 @@ public class Enemy : MonoBehaviour
     private WaitUntil detectPlayer;
     private LayerMask playerMask;
 
-    private void OnEnable()
-    {
-        StartCoroutine(MoveToPlayer());
-    }
-
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerMask = LayerMask.GetMask("Player");
         detectPlayer = new WaitUntil(() => OnMove());
+        
     }
 
     public void Init()
     {
+        StartCoroutine(MoveToPlayer());
+    }
 
+    public void SetData(string rcode)
+    {
+        stat = DataManager.Instance.enemyList.Find((obj) => obj.rcode == rcode);
     }
 
     public void ReturnPool()
@@ -55,4 +56,6 @@ public class Enemy : MonoBehaviour
         rbody.velocity = Vector2.left * stat.speed;
         return false;
     }
+
+
 }

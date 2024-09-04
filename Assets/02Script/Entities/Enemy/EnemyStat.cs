@@ -6,9 +6,10 @@ using UnityEngine;
 [Serializable]
 public class EnemyStat
 {
+    public string rcode;
     public string name;
-    public EnemyGrade grade;
+    public string grade;
     public float speed;
     public int health;
-    public GameObject prefab;
+    public int maxHealth;
 }

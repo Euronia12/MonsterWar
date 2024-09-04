@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
+public class Arrow : MonoBehaviour, PoolObject
 {
     [SerializeField]
     Rigidbody2D rbody;
@@ -19,16 +19,16 @@ public class Arrow : MonoBehaviour
         checking = new WaitUntil(() => CheckedArrow());
     }
 
-    private void OnEnable()
+    public void Init()
     {
         isReturn = false;
         transform.position = player.shootPos.position;
         StartCoroutine(Shooting());
     }
 
-    private void OnBecameInvisible()
+    public void SetData(string rcode)
     {
-        InitArrow();
+
     }
 
     IEnumerator Shooting()
@@ -60,4 +60,5 @@ public class Arrow : MonoBehaviour
         rbody.velocity = Vector2.zero;
         gameObject.SetActive(false);
     }
+
 }
