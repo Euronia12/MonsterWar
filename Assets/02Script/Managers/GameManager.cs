@@ -5,6 +5,11 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public bool isPlaying;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     // Start is called before the first frame update
     void Start()
     {
