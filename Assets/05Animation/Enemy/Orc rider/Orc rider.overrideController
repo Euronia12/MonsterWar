@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Orc rider
+  m_Controller: {fileID: 9100000, guid: b4bf68d79f8fbad4498b6162b85ccb6e, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6db1de1e45ffca340aabc1e1c36b7264, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a6210c007fa14594bab2e5aab9bd57c6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 20ee7858ad06f5f4cb84f7f5771a74a7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 46723017106567f4f97294bbd7862783, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 55cfce6bd7f4dec4a92a2d00b6bb0aae, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 066a7cc1c0305f447b148a8d1d6dd7fc, type: 2}
