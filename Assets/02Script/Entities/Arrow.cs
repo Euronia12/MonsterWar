@@ -13,7 +13,7 @@ public class Arrow : MonoBehaviour, PoolObject
 
     private bool isReturn;
     private WaitUntil checking;
-
+    private Enemy enemy;
     private void Awake()
     {
         checking = new WaitUntil(() => CheckedArrow());
@@ -51,6 +51,11 @@ public class Arrow : MonoBehaviour, PoolObject
         {
             //플레이어 스탯 가져와서 데미지 주기
             int damage = player.playerStat.atkPower;
+            
+            if (collision.TryGetComponent(out enemy))
+            {
+                enemy.statHandler.OnDamaged(damage);
+            }
             isReturn = true;
         }
     }

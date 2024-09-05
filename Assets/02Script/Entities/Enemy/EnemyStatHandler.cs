@@ -8,7 +8,7 @@ public class EnemyStatHandler : MonoBehaviour
     private Enemy enemy;
     public bool isDead;
 
-    private void Start()
+    private void Awake()
     {
         enemy.stat.maxHealth = enemy.stat.health;
     }
@@ -16,6 +16,7 @@ public class EnemyStatHandler : MonoBehaviour
     public void Init()
     {
         enemy.stat.health = enemy.stat.maxHealth;
+        isDead = false;
     }
 
     public void OnDamaged(int damage)
@@ -24,6 +25,9 @@ public class EnemyStatHandler : MonoBehaviour
         if (enemy.stat.health <= 0)
         {
             isDead = true;
+            enemy.ReturnPool();
+            Player.Instance.fsm.target = null;
+            StageManager.Instance.isStageClear = true;
         }
     }
 }

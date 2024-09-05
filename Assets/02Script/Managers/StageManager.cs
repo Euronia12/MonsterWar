@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageManager : MonoBehaviour
+public class StageManager : Singleton<StageManager>
 {
     private PoolManager poolManager => PoolManager.Instance;
     private DataManager dataManager => DataManager.Instance;
 
     public bool isStageClear;
     public int stageCount = 0;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +33,9 @@ public class StageManager : MonoBehaviour
         {
             if (stageCount == dataManager.enemyList.Count)
                 stageCount = 0;
-            poolManager.SpawnFromPool<Enemy>(dataManager.enemyList[stageCount++].rcode).Init();
+            poolManager.SpawnFromPool<Enemy>(dataManager.enemyList[stageCount].rcode).Init();
             yield return new WaitUntil(() => isStageClear);
+            stageCount++;
             isStageClear = false;
         }
     }

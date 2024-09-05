@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbody: {fileID: 5768276149640666028}
+  coll: {fileID: 7945079995887955483}
   animator: {fileID: 7951113844287280466}
   spawnerTr: {fileID: 2531771653942827051, guid: e0c63308edea4e34084dfefc695f0ec2, type: 3}
   state: 0
@@ -228,7 +229,6 @@ MonoBehaviour:
     health: 0
     maxHealth: 0
   statHandler: {fileID: 8611751606099170604}
-  rcode: ENY00000
 --- !u!114 &8611751606099170604
 MonoBehaviour:
   m_ObjectHideFlags: 0
