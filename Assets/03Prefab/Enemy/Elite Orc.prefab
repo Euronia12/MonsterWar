@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8049522317185157763
 Transform:
   m_ObjectHideFlags: 0
@@ -174,9 +174,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
+  m_Offset: {x: -0.1, y: 0.15}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.5
 --- !u!50 &7382685401372503454
 Rigidbody2D:
   serializedVersion: 4
@@ -219,6 +219,7 @@ MonoBehaviour:
   rbody: {fileID: 7382685401372503454}
   coll: {fileID: 4190861859197065911}
   animator: {fileID: 7077565378321249551}
+  sr: {fileID: 4736683889304025997}
   spawnerTr: {fileID: 2531771653942827051, guid: e0c63308edea4e34084dfefc695f0ec2, type: 3}
   state: 0
   stat:

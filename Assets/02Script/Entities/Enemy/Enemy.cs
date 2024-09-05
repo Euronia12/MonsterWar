@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour, PoolObject
     [SerializeField]
     private CircleCollider2D coll;
     public Animator animator;
+    public SpriteRenderer sr;
 
     [SerializeField]
     private Transform spawnerTr;

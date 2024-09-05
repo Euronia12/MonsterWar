@@ -219,6 +219,7 @@ MonoBehaviour:
   rbody: {fileID: 5768276149640666028}
   coll: {fileID: 7945079995887955483}
   animator: {fileID: 7951113844287280466}
+  sr: {fileID: 1179285241035970079}
   spawnerTr: {fileID: 2531771653942827051, guid: e0c63308edea4e34084dfefc695f0ec2, type: 3}
   state: 0
   stat:
