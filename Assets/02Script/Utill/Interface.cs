@@ -6,3 +6,10 @@ public interface PoolObject
 {
     public abstract void SetData(string rcode);
 }
+
+public interface IState
+{
+    void Enter();
+    void Execute();
+    void Exit();
+}

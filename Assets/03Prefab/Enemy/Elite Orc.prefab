@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6973592882220788404}
   - component: {fileID: 4736683889304025997}
   - component: {fileID: 7077565378321249551}
+  - component: {fileID: 7400046335485808434}
   m_Layer: 8
   m_Name: Image
   m_TagString: Enemy
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1936678040998609269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106,6 +107,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7400046335485808434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936678040998609269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbb6bb2ee815bf4883d1db49784bf84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1794053539473660601}
 --- !u!1 &5280630430928200099
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +133,7 @@ GameObject:
   - component: {fileID: 7382685401372503454}
   - component: {fileID: 1794053539473660601}
   - component: {fileID: -1459229026135857021}
+  - component: {fileID: 5671283507896245266}
   m_Layer: 8
   m_Name: Elite Orc
   m_TagString: Enemy
@@ -135,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 5280630430928200099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.24, y: -1.77, z: 0}
+  m_LocalPosition: {x: 10, y: -1.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -174,7 +189,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: 0.15}
+  m_Offset: {x: 0, y: 0.15}
   serializedVersion: 2
   m_Radius: 0.5
 --- !u!50 &7382685401372503454
@@ -220,7 +235,7 @@ MonoBehaviour:
   coll: {fileID: 4190861859197065911}
   animator: {fileID: 7077565378321249551}
   sr: {fileID: 4736683889304025997}
-  spawnerTr: {fileID: 2531771653942827051, guid: e0c63308edea4e34084dfefc695f0ec2, type: 3}
+  fsm: {fileID: 5671283507896245266}
   state: 0
   stat:
     rcode: 
@@ -230,6 +245,10 @@ MonoBehaviour:
     health: 0
     maxHealth: 0
   statHandler: {fileID: -1459229026135857021}
+  spawnerTr: {fileID: 2531771653942827051, guid: e0c63308edea4e34084dfefc695f0ec2, type: 3}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &-1459229026135857021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,4 +262,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1794053539473660601}
-  isDead: 0
+--- !u!114 &5671283507896245266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5280630430928200099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8395053bf3628754aa7bf86424761628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1794053539473660601}
+  anim: {fileID: 7077565378321249551}
+  animData:
+    idleParameterName: Idle
+    attackParameterName: NormalAttack
+    moveParameterName: Move
+    dieParameterName: Die
+  rb: {fileID: 7382685401372503454}

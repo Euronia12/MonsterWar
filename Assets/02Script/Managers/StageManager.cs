@@ -37,6 +37,7 @@ public class StageManager : Singleton<StageManager>
             yield return new WaitUntil(() => isStageClear);
             stageCount++;
             isStageClear = false;
+            yield return new WaitForSeconds(2f);
         }
     }
 

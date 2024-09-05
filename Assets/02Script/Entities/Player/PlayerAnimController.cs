@@ -22,7 +22,7 @@ public class PlayerAnimController : MonoBehaviour
                 
                 break;
             case PlayerState.Attack:
-                animator.SetTrigger(animData.attackParameterHash);
+                animator.SetTrigger(animData.AttackParameterHash);
                 break;
             default:
                 Debug.Log("상태 에러");

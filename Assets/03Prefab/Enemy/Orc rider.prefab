@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9140481840620512706}
   - component: {fileID: 5789237054991294038}
   - component: {fileID: 1474526311921943496}
+  - component: {fileID: 1958249082775249396}
   m_Layer: 8
   m_Name: Orc rider
   m_TagString: Enemy
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8411486493975888243}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.24, y: -1.77, z: 0}
+  m_LocalPosition: {x: 10, y: -1.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -114,7 +115,7 @@ MonoBehaviour:
   coll: {fileID: 6798624113426146429}
   animator: {fileID: 2899170920291659682}
   sr: {fileID: 124080957455063923}
-  spawnerTr: {fileID: 2531771653942827051, guid: e0c63308edea4e34084dfefc695f0ec2, type: 3}
+  fsm: {fileID: 1958249082775249396}
   state: 0
   stat:
     rcode: 
@@ -124,6 +125,10 @@ MonoBehaviour:
     health: 0
     maxHealth: 0
   statHandler: {fileID: 1474526311921943496}
+  spawnerTr: {fileID: 2531771653942827051, guid: e0c63308edea4e34084dfefc695f0ec2, type: 3}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1474526311921943496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +142,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5789237054991294038}
-  isDead: 0
+--- !u!114 &1958249082775249396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8411486493975888243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8395053bf3628754aa7bf86424761628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 5789237054991294038}
+  anim: {fileID: 2899170920291659682}
+  animData:
+    idleParameterName: Idle
+    attackParameterName: NormalAttack
+    moveParameterName: Move
+    dieParameterName: Die
+  rb: {fileID: 9140481840620512706}
 --- !u!1 &8448175120312762322
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +173,7 @@ GameObject:
   - component: {fileID: 1923139871456336616}
   - component: {fileID: 124080957455063923}
   - component: {fileID: 2899170920291659682}
+  - component: {fileID: 6932133782633787749}
   m_Layer: 8
   m_Name: Image
   m_TagString: Enemy
@@ -244,3 +269,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6932133782633787749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448175120312762322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbb6bb2ee815bf4883d1db49784bf84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 5789237054991294038}

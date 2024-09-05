@@ -28,7 +28,7 @@ public class Arrow : MonoBehaviour, PoolObject
 
     public void SetData(string rcode)
     {
-
+        
     }
 
     IEnumerator Shooting()

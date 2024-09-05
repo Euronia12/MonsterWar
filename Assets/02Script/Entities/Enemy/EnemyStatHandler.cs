@@ -6,7 +6,6 @@ public class EnemyStatHandler : MonoBehaviour
 {
     [SerializeField]
     private Enemy enemy;
-    public bool isDead;
 
     private void Awake()
     {
@@ -16,7 +15,6 @@ public class EnemyStatHandler : MonoBehaviour
     public void Init()
     {
         enemy.stat.health = enemy.stat.maxHealth;
-        isDead = false;
     }
 
     public void OnDamaged(int damage)
@@ -24,10 +22,7 @@ public class EnemyStatHandler : MonoBehaviour
         enemy.stat.health -= damage;
         if (enemy.stat.health <= 0)
         {
-            isDead = true;
-            enemy.ReturnPool();
-            Player.Instance.fsm.target = null;
-            StageManager.Instance.isStageClear = true;
+            enemy.state = EnemyState.Death;
         }
     }
 }

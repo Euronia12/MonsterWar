@@ -37,9 +37,14 @@ public class PlayerFSM : MonoBehaviour
                    var enemy = Physics2D.OverlapBox(pos, size, 0, enemyMask);
                     if (enemy != null)
                     {
-                        target = enemy.gameObject;
-                        Attack(target);
-                        yield return coolTime;
+                        var state = enemy.GetComponent<Enemy>().state;
+                        if (state != EnemyState.Death)
+                        {
+                            target = enemy.gameObject;
+                            Attack(target);
+                            yield return coolTime;
+                        }
+                        yield return null;
                     }
                     else
                     {
@@ -65,6 +70,7 @@ public class PlayerFSM : MonoBehaviour
         poolManager.SpawnFromPool<Arrow>("Arrow").Init();
         Debug.Log("АјАн");
     }
+
     void OnDrawGizmos()
     {
         Gizmos.color = UnityEngine.Color.red;
