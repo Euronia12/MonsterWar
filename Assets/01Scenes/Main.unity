@@ -1606,10 +1606,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4554259839120266888, guid: 72dc1cb02cb6d644a9a5a53e2ce485b6, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5385559319459648000, guid: 72dc1cb02cb6d644a9a5a53e2ce485b6, type: 3}
       propertyPath: m_Name
       value: Player
