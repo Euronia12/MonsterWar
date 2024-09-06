@@ -971,8 +971,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 1
-  isStageClear: 0
   stageCount: 0
+  isStageClear: 0
+  time: 2
 --- !u!213 &943519215
 Sprite:
   m_ObjectHideFlags: 0
@@ -2074,6 +2075,7 @@ MonoBehaviour:
   isDontDestroyOnLoad: 1
   hpBar: {fileID: 1889732505}
   hpBarRect: {fileID: 156758410}
+  curEnemy: {fileID: 0}
   InfoPopup: {fileID: 1886351474}
   icon: {fileID: 1620530310}
   nameTxt: {fileID: 595535865}
@@ -3358,7 +3360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2531771653942827051, guid: e0c63308edea4e34084dfefc695f0ec2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2531771653942827051, guid: e0c63308edea4e34084dfefc695f0ec2, type: 3}
       propertyPath: m_LocalPosition.z
