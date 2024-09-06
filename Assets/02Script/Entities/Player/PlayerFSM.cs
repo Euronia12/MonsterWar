@@ -3,21 +3,24 @@ using UnityEngine;
 
 public class PlayerFSM : MonoBehaviour
 {
-    [SerializeField]
-    private Vector2 size;
-    [SerializeField]
-    private Vector2 pos;
+    private PoolManager poolManager => PoolManager.Instance;
+    public PlayerAnimController animController;
 
     [SerializeField]
     private LayerMask enemyMask;
     private WaitForSeconds coolTime;
 
-    private PoolManager poolManager => PoolManager.Instance;
-    public GameObject target;
+    //확인 구역 넓이
+    [SerializeField]
+    private Vector2 size;
+    //최종 확인 구역 좌표
+    [SerializeField]
+    private Vector2 pos;
     private Collider2D hit;
+    public GameObject target;
+
     public float atkSpeed;
 
-    public PlayerAnimController animController;
     // Start is called before the first frame update
     void Start()
     {

@@ -5,13 +5,20 @@ using UnityEngine;
 
 public class DataManager : Singleton<DataManager>
 {
+    #region 분류 기호
     static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
     static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
     static char[] TRIM_CHARS = { '\"' };
+    #endregion
+
     [SerializeField]
     private string fileName;
+
+    #region 오브젝트 풀
     public List<Dictionary<string, object>> monsterInfo = new List<Dictionary<string, object>>();
     public List<EnemyStat> enemyList = new List<EnemyStat>();
+    #endregion
+
     protected override void Awake()
     {
         base.Awake();

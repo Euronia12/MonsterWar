@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour, PoolObject
 {
+    private Player player => Player.Instance;
     [SerializeField]
     Rigidbody2D rbody;
+
     [SerializeField]
     private float arrowSpeed;
+    private Enemy enemy;
     private string enemyTag = "Enemy";
-    private Player player => Player.Instance;
 
     private bool isReturn;
     private WaitUntil checking;
-    private Enemy enemy;
+
     private void Awake()
     {
         checking = new WaitUntil(() => CheckedArrow());

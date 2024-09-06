@@ -6,16 +6,19 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour, PoolObject
 {
-    private Player player => Player.Instance;
+    #region 컴포넌트
     public Rigidbody2D rbody;
     public CircleCollider2D coll;
     public Animator animator;
     public SpriteRenderer sr;
     public EnemyFSM fsm;
+    #endregion
 
+    #region 적 정보
     public EnemyState state = EnemyState.Idle;
     public EnemyStat stat = new EnemyStat();
     public EnemyStatHandler statHandler;
+    #endregion
 
     [SerializeField]
     private Transform spawnerTr;

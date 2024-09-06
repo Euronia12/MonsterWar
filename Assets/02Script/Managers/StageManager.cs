@@ -7,11 +7,15 @@ public class StageManager : Singleton<StageManager>
     private PoolManager poolManager => PoolManager.Instance;
     private DataManager dataManager => DataManager.Instance;
 
+    //스테이지 단계
+    public int stageCount = 0;
+    //스테이지 클리어 여부
     public bool isStageClear;
     private WaitUntil stageClear;
+
+    //다음스테이지 대기시간
     public float time = 2f;
     private WaitForSeconds waitingTime;
-    public int stageCount = 0;
 
     protected override void Awake()
     {

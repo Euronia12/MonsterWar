@@ -7,14 +7,18 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
+    //체력 바
     public Image hpBar;
     public RectTransform hpBarRect;
 
     private Camera cam;
     private Vector3 mousePos;
 
+    //클릭한 적 오브젝트
     private Enemy choicedEnemy;
+    //현재 스테이지 적 오브젝트
     public Enemy curEnemy;
+
     #region InfoPopup
     public GameObject InfoPopup;
     public Image icon;
@@ -23,6 +27,7 @@ public class UIManager : Singleton<UIManager>
     public Text speedTxt;
     public Text healthTxt;
     #endregion
+
     protected override void Awake()
     {
         base.Awake();
@@ -40,6 +45,7 @@ public class UIManager : Singleton<UIManager>
         {
             if (GameManager.Instance.isPlaying)
             {
+                //적 오브젝트 클릭 시 팝업 활성화 로직
                 if (Input.GetMouseButtonDown(0))
                 {
                     mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -56,6 +62,7 @@ public class UIManager : Singleton<UIManager>
                     }
                 }
 
+                //체력바 관련 로직
                 if (curEnemy != null)
                 {
                     if (curEnemy.stat.maxHealth > 0)
