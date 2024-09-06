@@ -48,9 +48,4 @@ public class EnemyFSM : MonoBehaviour
     {
         ChangeState(MoveState);
     }
-
-    public void OnEnemyDead()
-    {
-
-    }
 }

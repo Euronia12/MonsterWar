@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class DieState : BaseState
 {
-    EnemyFSM stateMachine;
-    Enemy enemy;
     public DieState(EnemyFSM stateMachine) : base(stateMachine)
     {
-        this.stateMachine = stateMachine;
-        enemy = stateMachine.enemy;
     }
 
     public override void Enter()

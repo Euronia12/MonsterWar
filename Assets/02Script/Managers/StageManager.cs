@@ -8,11 +8,16 @@ public class StageManager : Singleton<StageManager>
     private DataManager dataManager => DataManager.Instance;
 
     public bool isStageClear;
+    private WaitUntil stageClear;
+    public float time = 2f;
+    private WaitForSeconds waitingTime;
     public int stageCount = 0;
 
     protected override void Awake()
     {
         base.Awake();
+        stageClear = new WaitUntil(() => isStageClear);
+        waitingTime = new WaitForSeconds(time);
     }
 
     // Start is called before the first frame update
@@ -34,10 +39,10 @@ public class StageManager : Singleton<StageManager>
             if (stageCount == dataManager.enemyList.Count)
                 stageCount = 0;
             poolManager.SpawnFromPool<Enemy>(dataManager.enemyList[stageCount].rcode).Init();
-            yield return new WaitUntil(() => isStageClear);
+            yield return stageClear;
             stageCount++;
             isStageClear = false;
-            yield return new WaitForSeconds(2f);
+            yield return waitingTime;
         }
     }
 

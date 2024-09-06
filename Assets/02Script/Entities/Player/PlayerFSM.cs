@@ -14,6 +14,7 @@ public class PlayerFSM : MonoBehaviour
 
     private PoolManager poolManager => PoolManager.Instance;
     public GameObject target;
+    private Collider2D hit;
     public float atkSpeed;
 
     public PlayerAnimController animController;
@@ -34,14 +35,13 @@ public class PlayerFSM : MonoBehaviour
             {
                 if (target == null)
                 {
-                   var enemy = Physics2D.OverlapBox(pos, size, 0, enemyMask);
-                    if (enemy != null)
+                    hit = Physics2D.OverlapBox(pos, size, 0, enemyMask);
+                    if (hit != null)
                     {
-                        var state = enemy.GetComponent<Enemy>().state;
+                        var state = hit.GetComponent<Enemy>().state;
                         if (state != EnemyState.Death)
                         {
-                            target = enemy.gameObject;
-                            Attack(target);
+                            Attack();
                             yield return coolTime;
                         }
                         yield return null;
@@ -54,7 +54,7 @@ public class PlayerFSM : MonoBehaviour
                 }
                 else
                 {
-                    Attack(target);
+                    Attack();
                     yield return coolTime;
                 }
             }
@@ -64,11 +64,10 @@ public class PlayerFSM : MonoBehaviour
     }
 
 
-    public void Attack(GameObject enemy)
+    public void Attack()
     {
         animController.PlayAnimation(PlayerState.Attack);
         poolManager.SpawnFromPool<Arrow>("Arrow").Init();
-        Debug.Log("АјАн");
     }
 
     void OnDrawGizmos()
