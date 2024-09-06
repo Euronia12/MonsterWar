@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "565951827731",
+    "project_id": "monsterwar-eefde",
+    "storage_bucket": "monsterwar-eefde.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565951827731:android:777f782a9e804e8874d4e6",
+        "android_client_info": {
+          "package_name": "com.Euronia.MonsterWar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdBnNq2hWmwHh69Nzw9HY6y1h62ESdIAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
