@@ -47,10 +47,15 @@ public class PlayerFSM : MonoBehaviour
                             Attack();
                             yield return coolTime;
                         }
-                        yield return null;
+                        else
+                        {
+                            Idle();
+                            yield return null;
+                        }
                     }
                     else
                     {
+                        Idle();
                         yield return null;
                         continue;
                     }
@@ -70,6 +75,15 @@ public class PlayerFSM : MonoBehaviour
     public void Attack()
     {
         animController.PlayAnimation(PlayerState.Attack);
+    }
+
+    public void Idle()
+    {
+        animController.PlayAnimation(PlayerState.Idle);
+    }
+
+    public void OnShoot()
+    {
         poolManager.SpawnFromPool<Arrow>("Arrow").Init();
     }
 
